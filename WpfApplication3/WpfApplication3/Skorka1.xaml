@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfApplication3">
+    <Style TargetType="ToolBarTray">
+        <Setter Property="Background" Value="Red"/>
+    </Style>
+    <Style TargetType="ToolBar">
+        <Setter Property="Background" Value="Red"/>
+    </Style>
+    <Style TargetType="StatusBar">
+        <Setter Property="Background" Value="Red"/>
+    </Style>
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="Yellow"/>
+    </Style>
+</ResourceDictionary>

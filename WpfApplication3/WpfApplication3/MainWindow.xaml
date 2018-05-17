@@ -1,0 +1,78 @@
+﻿<Window x:Class="WpfApplication3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="500" Width="900" Closing="Window_Closing">
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Name="nowy" Click="nowy_Click">
+                    Nowy
+                </Button>
+                <Button Name="otworz" Click="otworz_Click">Otwórz</Button>
+                <Button Name="zapiszPrzycisk" Click="zapisz_Click" VerticalAlignment="Bottom" Height="22">Zapisz</Button>
+                <Button Name="zapiszJako" Click="zapiszJako_Click">Zapisz jako...</Button>
+            </ToolBar>
+            <ToolBar>
+            <ToggleButton Name="b" Click="b_Click">
+                    <TextBlock FontWeight="Bold">B</TextBlock>
+                </ToggleButton>
+                <ToggleButton Name="iPrzycisk" Click="iPrzycisk_Click">
+                    <TextBlock FontStyle="Italic">I</TextBlock>
+                </ToggleButton>
+                <ToggleButton Name="u" Click="u_Click">
+                    <TextBlock TextDecorations="Underline">U</TextBlock>
+                </ToggleButton>
+                <RadioButton Style="{StaticResource {x:Type ToggleButton}}" Name="zLewej" Click="zLewej_Click" IsChecked="True">
+                    <Image Source="Icon1.ico" Width="16" Height="16"></Image>
+                </RadioButton>
+                <RadioButton Style="{StaticResource {x:Type ToggleButton}}" Name="naSrodku" Click="naSrodku_Click">
+                    <Image Source="Icon2.ico" Width="16" Height="16"></Image>
+                </RadioButton>
+                <RadioButton Style="{StaticResource {x:Type ToggleButton}}" Name="zPrawej" Click="zPrawej_Click">
+                    <Image Source="Icon3.ico" Width="16" Height="16"></Image>
+                </RadioButton>
+                <ComboBox Text="1" Width="30" Name="cbSize" SelectionChanged="cbSize_SelectionChanged">
+                </ComboBox>
+                <ComboBox Name="cbFonts" Width="100" SelectionChanged="cbFonts_SelectionChanged">
+                </ComboBox>
+            </ToolBar>
+            <ToolBar>
+                <Button Command="Cut">Wytnij</Button>
+                <Button Command="Copy">Kopiuj</Button>
+                <Button Command="Paste">Wklej</Button>
+            </ToolBar>
+            <ToolBar>
+                <Button Name="znajdzIZamien" Click="znajdzIZamien_Click">Znajdź i zamień</Button>
+            </ToolBar>
+            <ToolBar>
+                <ComboBox Name="skorki" Width="100" SelectionChanged="skorki_SelectionChanged">
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem>
+                <TextBlock Name="txtInfo">Wiersz: 1 Kolumna: 1</TextBlock>
+            </StatusBarItem>
+            <Separator Grid.Column="1"/>
+            <StatusBarItem Grid.Column="2">
+                <TextBlock Name="aktualnyPlik" Text="{Binding SciezkaOtwartegoPliku}"/>
+            </StatusBarItem>
+        </StatusBar>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible">
+        <TextBox AcceptsReturn="True" Name="txtEdit" SelectionChanged="txtEdit_SelectionChanged" FontFamily="Tahoma" FontSize="12"></TextBox>
+        </ScrollViewer>
+    </DockPanel>
+</Window>
